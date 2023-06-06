@@ -1,6 +1,6 @@
 <?php
     $host = 'localhost';
-    $dbname = 'datubāze';
+    $dbname = 'gprojekts';
     $user = 'root'; 
     $password = ''; 
 

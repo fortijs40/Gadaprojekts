@@ -4,4 +4,25 @@
     background-repeat: repeat;
     background-position: center;
 }
+#mazaksGerbonis{
+    height: 200px;
+    width: 200px;
+    background-repeat: repeat;
+    background-position: center;
+}
+.heart {
+    color: green;
+    font-size: 30px;
+    transition: color 0.3s ease-in-out;
+}
+p1 {
+ color: rgb(218, 22, 22);
+ 
+}
+p2 {
+    color: rgb(218, 22, 22);   
+}
+p3 {
+color: rgb(14, 235, 32);
+}
 
