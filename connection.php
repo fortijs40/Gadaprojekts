@@ -1,6 +1,6 @@
 <?php
     $host = 'localhost';
-    $dbname = 'datubāze';
+    $dbname = 'gerboni';
     $user = 'root'; 
     $password = ''; 
 
