@@ -11,6 +11,7 @@
   <body>
   <div class="container mt-5" >
     <h1>Ģērboņu minēšana!</h1>
+    <h2>Pilsētas</h2>
   </div>
   <div class="container mt-5" >
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/COA_LV_Valmiera.svg/86px-COA_LV_Valmiera.svg.png" class="img-fluid" id="gerbonis" alt="valmierasģērbonis">
