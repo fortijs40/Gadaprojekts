@@ -15,7 +15,7 @@
     <a href="index.php">
         <h1>Zinīble</h1>
     </a>
-    <div class="container mt-5 border border-3 rounded-3">
+    <div class="container mt-5 border border-3 rounded-3" style="width: 800px">
         <h2 style="text-align:center;">Pilsētas gerboņi</h2>
         <br>
         <div class="row">
@@ -95,7 +95,7 @@
                 if (totalRevealed > 90) {
                     totalRevealed = 90;
                 }
-                document.querySelector('.covered-image').style.height = (90 - totalRevealed) + "%";
+                document.querySelector('.covered-image').style.height = (75 - totalRevealed) + "%";
 
                 if (totalRevealed == 75 && hintShown === false) {
                     var hintButton = document.createElement("button");

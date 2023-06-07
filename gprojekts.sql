@@ -47,7 +47,7 @@ INSERT INTO `pilsetas` (`name`, `year`, `path`, `fact`) VALUES
 ('Aloja', 1998, 'gerboni/pilseta/aloja.png', 'Šī pilsēta ir pazīstama ar savu skaisto pludmali, kas ir populāra gan vietējiem iedzīvotājiem, gan tūristiem.'),
 ('Aizpute', 1925, 'gerboni/pilseta/aizpute.png', 'Šīs pilsētas centrs ir iekļauts Latvijas kultūras pieminekļu sarakstā un šeit var apskatīt vēsturiskas ēkas.'),
 ('Aknīste', 1997, 'gerboni/pilseta/akniste.png', 'Neliela pilsēta Latvijas dienvidaustrumos, pazīstama ar savu vēsturisko pilsētas centru.'),
-('Ventspils', 1925, 'gerboni/pilseta/ventspils.png', 'Šī ir lielākā pilsēta Kurzemē, un tā atrodas pie Baltijas jūras.'),
+('Ventspils', 1925, 'gerboni/pilseta/ventspils.png', 'Tās nosaukums cēlies no Ventas upes, kas plūst cauri pilsētai.'),
 ('Valmiera', 1925, 'gerboni/pilseta/valmiera.png', 'Pilsēta ir populāra kultūras pasākumu un festivālu norises vieta, un šeit notiek daudzi sporta pasākumi un sacensības.'),
 ('Rīga', 1925, 'gerboni/pilseta/riga.png', 'bro ja nezini kas šis, this game aint for you /s'),
 ('Rēzekne', 1925, 'gerboni/pilseta/rezekne.png', 'Pilsēta pazīstama ar savu seno vēsturi un kultūras mantojumu, un tā ir svarīgs kultūras un izglītības centrs Latgalē.'),

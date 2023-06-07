@@ -54,7 +54,9 @@ body {
 .covered-image {
     position: relative !important;
     display: inline-block;
-    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
 }
 
 .covered-image::before {
@@ -75,9 +77,13 @@ body {
     vertical-align: top;
 }
 
-.result-container {
-    margin-top: 20px;
+#result {
+    margin-top: 200px;
     text-align: center;
+    display: block !important;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .message-container {
