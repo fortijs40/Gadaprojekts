@@ -7,27 +7,6 @@
     <title>Zinible</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    
-    <style>
-      h1 {
-          background-color: black;
-          color: white;
-          font-size: 70px;
-      }
-      body {
-          text-align: center;
-      }
-      .btn {
-        margin-top: 10px;
-        width: 500px;
-        font-size: 30px;
-      }
-
-      .btn:hover {
-        background-color: gray;
-      }
-    </style>
-    
   </head>
   <body>
     <h1>Zinīble</h1>

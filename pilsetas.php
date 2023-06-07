@@ -7,76 +7,17 @@
     <title>Zinīble</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    
-    <style>
-        h1 {
-            background-color: black;
-            color: white;
-            font-size: 70px;
-        }
-        body {
-            text-align: center;
-        }
-        .btn {
-            margin-top: 10px;
-            width: 500px;
-            font-size: 30px;
-        }
-
-        .btn:hover {
-            background-color: gray;
-        }
-
-        .image-container {
-            display: inline-block;
-            width: 40%;
-            margin-right: 20px;
-        }
-
-        .covered-image {
-            position: relative;
-            width: 100%;
-        }
-
-        .covered-image::before {
-            content: "";
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 90%;
-            background-color: white;
-            z-index: 1;
-        }
-
-        .input-container {
-            display: inline-block;
-            width: 40%;
-            vertical-align: top;
-        }
-
-        .result-container {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .message-container {
-            margin-top: 20px;
-        }
-    </style>
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
 </head>
 <body>
     <a href="index.php">
         <h1>Zinīble</h1>
     </a>
-    <h2>Ģerboņu minēšanas spēle</h2>
-    <br>
-    <br>
-    <h2 style="text-align:center;">Pilsetas gērboņi</h2>
-    <br>
-    <div class="container">
+    <div class="container mt-5 border border-3 rounded-3">
+        <h2 style="text-align:center;">Pilsētas gerboņi</h2>
+        <br>
         <div class="row">
             <div class="image-container">
                 <?php
@@ -109,11 +50,11 @@
             </div>
             <div class="input-container">
                 <div class="container mt-5">
-                    <br> 
-                    <br>
                     <div class="message-container" id="result"></div>
+                    <div class="input-group mb-3" style="width: 500px; margin-left: auto; margin-right: auto;">
+                        <input type="text" class="form-control" placeholder="Pilsētas nosaukums" aria-describedby="button" id="inputText">
+                    </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="" aria-describedby="button" id="inputText">
                         <button class="btn btn-outline-secondary" type="button" id="button">Pārbaudīt</button>
                     </div>
                 </div>
@@ -124,20 +65,21 @@
     <script>
         var revealPercentage = 15;
         var totalRevealed = 0;
+        var hintShown = false;
 
         document.getElementById("button").addEventListener("click", function () {
-    var inputText = document.getElementById("inputText").value;
-    var answer = '<?php echo $row["name"]; ?>';
+            var inputText = document.getElementById("inputText").value;
+            var answer = '<?php echo $row["name"]; ?>';
 
-    if (inputText.trim() === "") {
-        document.getElementById("result").innerHTML = '<div class="alert alert-danger">Lūdzu, ievadiet atbildi!</div>';
-        return;
-    }
+            if (inputText.trim() === "") {
+                document.getElementById("result").innerHTML = '<div class="alert alert-danger">Lūdzu, ievadiet atbildi!</div>';
+                return;
+            }
 
-    // Remove any existing error messages
-    document.getElementById("result").innerHTML = "";
+            // Remove any existing error messages
+            document.getElementById("result").innerHTML = "";
 
-    if (inputText.toLowerCase() === answer.toLowerCase()) {
+            if (inputText.toLowerCase() === answer.toLowerCase()) {
                 document.getElementById("result").innerHTML = '<div class="alert alert-success">Pareizi!</div>';
                 document.querySelector('.covered-image').style.height = '0';
 
@@ -156,6 +98,21 @@
                 }
                 document.querySelector('.covered-image').style.height = (90 - totalRevealed) + "%";
 
+                if (totalRevealed == 75 && hintShown === false) {
+                    var hintButton = document.createElement("button");
+                    hintButton.classList.add("btn", "btn-warning");
+                    hintButton.textContent = "Iegūt padomu";
+                    hintButton.onclick = function () {
+                        var hint = '<?php echo $row["fact"]; ?>';
+                        var hintMessage = document.createElement("div");
+                        hintMessage.classList.add("alert", "alert-warning");
+                        hintMessage.textContent = hint;
+                        document.querySelector('.message-container').appendChild(hintMessage);
+                        hintButton.remove();
+                        hintShown = true;
+                    };
+                    document.querySelector('.message-container').appendChild(hintButton);
+                }
                 if (totalRevealed === 90) {
                     document.getElementById("button").disabled = true;
                     var nextButton = document.createElement("button");
@@ -172,6 +129,24 @@
                     document.querySelector('.message-container').appendChild(message);
                 }
             }
+        });
+        //autocomplete daļa, ja vajag novadiem tad arī var pārlikt un uztaisīt priekš novadiem tur php, idk vai vajadzēja novadiem, cuz tur uzreiz full ģerbonis bija
+        $(document).ready(function() {
+            $("#inputText").autocomplete({
+                source: function(request, response) {
+                    $.ajax({
+                        url: "autocompleteCit.php",
+                        dataType: "json",
+                        data: {
+                        term: request.term
+                        },
+                        success: function(data) {
+                        response(data);
+                        }
+                    });
+                },
+                minLength: 2 // minimum number of characters to trigger autocomplete
+            });
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

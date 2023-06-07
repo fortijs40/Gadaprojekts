@@ -10,6 +10,9 @@
 
 </head>
   <body>
+    <a href="index.php">
+        <h1>Zinīble</h1>
+    </a>
     <div class="container mt-5 border border-3 rounded-3" >
         <?php
             require 'connection.php';
@@ -29,8 +32,10 @@
                 }
             }
         ?>
-         <div class="form-group mb-3 d-flex flex-row justify-content-center ">
+        <div class="form-group mb-3 d-flex flex-row justify-content-center ">
             <input type="text" class="form-control w-25" placeholder="Novads, piemēram, Valmieras" aria-describedby="button" id="searchInput">
+        </div>
+        <div class="form-group mb-3 d-flex flex-row justify-content-center ">
             <button class="btn btn-outline-primary" type="button" id="button" onclick="checkGuess()">Minēt</button>
         </div>
         <div class="modal fade" id="correctAnswerModal" tabindex="-1" role="dialog" aria-labelledby="correctAnswerModalLabel" aria-hidden="true">
