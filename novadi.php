@@ -61,12 +61,13 @@
             var correctAnswerDisplay = document.getElementById('correctAnswer');
             var nextButton = document.getElementById('nextButton');
             // Add event listener for the "keypress" event
-            inputField.addEventListener('keypress', function(event) {
+            var keyPressHandler = function(event) {
                 // Check if the Enter key was pressed (key code 13)
                 if (event.keyCode === 13) {
                     checkGuess(); // Call the checkGuess() function to handle the guess
                 }
-            });
+            };
+            inputField.addEventListener('keypress', keyPressHandler);
             function checkGuess() {
                 var guessedAnswer = document.getElementById('searchInput').value;
                 // Compare the guessed answer with the correct answer
@@ -89,7 +90,7 @@
             }
             function newButton(){
                 document.getElementById('button').disabled = true; //THIS SHIT WORKS :)
-                inputField.removeEventListener('keypress', checkGuess);//THIS SHIT DONT WORK :(
+                inputField.removeEventListener('keypress', keyPressHandler);//THIS SHIT DONT WORK :(
                 nextButton.setAttribute('class', 'btn btn-primary');
                 nextButton.setAttribute('id', 'nextButton');
                 nextButton.textContent = 'Nākošais ģerbonis';
