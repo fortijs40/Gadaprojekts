@@ -29,7 +29,7 @@
                 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                     #echo '<p style="font-size:20px;text-align:center;">' . $row['id'] .  ' gadi)' . '</p>';
                     echo '<div style="text-align:center;">';
-                    echo '<img src="'. $row['path'] .'" class="img-fluid" id="mazaksGerbonis" alt="question"> <br><p>'.$row['name'].' novads</p>';
+                    echo '<img src="'. $row['path'] .'" class="img-fluid" id="mazaksGerbonis" alt="question"> <br>';
                     echo '</div>';
                     $correctAnswer = $row['name'];
                 }

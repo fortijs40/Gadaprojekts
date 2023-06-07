@@ -44,7 +44,6 @@
                     echo '<div class="covered-image">';
                     echo '<img src="' . $row['path'] . '" class="img-fluid" alt="' . $row['name'] . '">';
                     echo '</div>';
-                    echo '<p style="font-size:20px;text-align:center;">' . $row['name'] . '</p>';
                 }
                 ?>
             </div>
