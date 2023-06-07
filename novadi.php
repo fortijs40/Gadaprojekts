@@ -6,6 +6,9 @@
     <meta name="keywords" content="Ģerbonis,Latvija,novadi,minēšana,spēle,vārdi,name,PHP,HTML,Bootstrap">
     <title>Zinible</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
 </head>
@@ -94,7 +97,24 @@
                     location.reload(); // Reload the page to generate a new coat of arms
                 });
                 document.getElementById('heartContainer').appendChild(nextButton);
-            }            
+            }     
+            $(document).ready(function() {
+            $("#searchInput").autocomplete({
+                source: function(request, response) {
+                $.ajax({
+                    url: "autocompleteReg.php",
+                    dataType: "json",
+                    data: {
+                    term: request.term
+                    },
+                    success: function(data) {
+                    response(data);
+                    }
+                });
+                },
+                minLength: 2 // minimum number of characters to trigger autocomplete
+            });
+            });       
         </script>
 </div>
 
